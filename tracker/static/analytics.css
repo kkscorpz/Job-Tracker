@@ -1,0 +1,553 @@
+/**
+ * Analytics Stylesheet - Professional Clean Design
+ */
+
+/* ============================================================================
+   LAYOUT & CONTAINER
+   ============================================================================ */
+
+.analytics-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 40px 50px 40px 180px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* ============================================================================
+   HEADER SECTION
+   ============================================================================ */
+
+.analytics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.analytics-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0d4715;
+    margin: 0;
+    letter-spacing: 1px;
+    margin-left: -100px;
+}
+
+.date-range-selector select {
+    padding: 10px 18px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 0.95rem;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.date-range-selector select:hover {
+    border-color: #0d4715;
+}
+
+.date-range-selector select:focus {
+    border-color: #0d4715;
+    box-shadow: 0 0 0 3px rgba(13, 71, 21, 0.1);
+}
+
+/* ============================================================================
+   MAIN LAYOUT GRID
+   ============================================================================ */
+
+.top-section {
+    display: grid;
+    grid-template-columns: 1fr 340px 380px;
+    gap: 25px;
+    margin-bottom: 30px;
+    margin-left: -105px;
+}
+
+.stats-and-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* ============================================================================
+   STATISTICS OVERVIEW
+   ============================================================================ */
+
+.stats-overview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 28px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #dee2e6;
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+}
+
+.stat-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.stat-details h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 8px 0;
+    line-height: 1;
+}
+
+.stat-details p {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* ============================================================================
+   SUCCESS METRICS
+   ============================================================================ */
+
+.success-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.metric-card {
+    background: linear-gradient(135deg, #0d4715 0%, #1b5e20 100%);
+    border-radius: 12px;
+    padding: 32px 28px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(13, 71, 21, 0.25);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(13, 71, 21, 0.35);
+}
+
+.metric-card h3 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 0 0 18px 0;
+    opacity: 0.95;
+    letter-spacing: 0.3px;
+}
+
+.metric-value {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    line-height: 1;
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    display: block;
+    font-weight: 400;
+}
+
+/* ============================================================================
+   RECENT ACTIVITY SIDEBAR
+   ============================================================================ */
+
+.recent-activity-sidebar {
+    background: white;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e9ecef;
+    height: fit-content;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.recent-activity-sidebar .activity-header {
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.recent-activity-sidebar .activity-header h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.recent-activity-sidebar .activity-list {
+    max-height: 100%;
+    overflow-y: auto;
+    margin-right: -8px;
+    padding-right: 8px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background-color: #f8f9fa;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.activity-item:hover {
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
+.activity-item:last-child {
+    margin-bottom: 0;
+}
+
+.activity-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.activity-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.activity-title {
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.activity-description {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.activity-time {
+    font-size: 0.75rem;
+    color: #adb5bd;
+    font-weight: 500;
+}
+
+/* ============================================================================
+   CHARTS SECTIONS
+   ============================================================================ */
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 18px;
+    height: 100%;
+}
+
+.chart-container {
+    background: #e9ecef;
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid #dee2e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 170px;
+    position: relative;
+}
+
+.chart-container::before {
+    content: 'Charts';
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.chart-header {
+    display: none;
+}
+
+.chart-content {
+    display: none;
+}
+
+/* ============================================================================
+   EMPTY STATE
+   ============================================================================ */
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #adb5bd;
+}
+
+.empty-state i {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+    opacity: 0.4;
+    display: block;
+}
+
+.empty-state p {
+    font-size: 1rem;
+    margin: 0;
+    color: #6c757d;
+}
+
+/* ============================================================================
+   SCROLLBAR STYLING
+   ============================================================================ */
+
+.recent-activity-sidebar .activity-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.recent-activity-sidebar .activity-list::-webkit-scrollbar-track {
+    background: #f8f9fa;
+    border-radius: 3px;
+}
+
+.recent-activity-sidebar .activity-list::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 3px;
+}
+
+.recent-activity-sidebar .activity-list::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+@media (max-width: 1600px) {
+    .analytics-container {
+        padding: 35px 40px 35px 170px;
+    }
+
+    .top-section {
+        grid-template-columns: 1fr 320px 360px;
+        gap: 20px;
+    }
+
+    .stats-overview {
+        gap: 18px;
+    }
+
+    .success-metrics {
+        gap: 18px;
+    }
+
+    .charts-grid {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .analytics-container {
+        padding: 30px 30px 30px 160px;
+    }
+
+    .top-section {
+        grid-template-columns: 1fr 300px;
+        gap: 20px;
+    }
+
+    .charts-grid {
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+    }
+
+    .chart-container {
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .analytics-container {
+        padding: 30px 30px 30px 160px;
+    }
+
+    .top-section {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .recent-activity-sidebar {
+        max-height: 500px;
+    }
+
+    .recent-activity-sidebar .activity-list {
+        max-height: 400px;
+    }
+
+    .charts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .chart-container {
+        min-height: 220px;
+    }
+}
+
+@media (max-width: 992px) {
+    .analytics-container {
+        padding: 25px 20px;
+    }
+
+    .stats-overview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .chart-container {
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .analytics-container {
+        padding: 20px 15px;
+    }
+
+    .analytics-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .analytics-header h1 {
+        font-size: 2rem;
+    }
+
+    .date-range-selector select {
+        width: 100%;
+    }
+
+    .stats-overview {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .stat-card {
+        padding: 24px 20px;
+    }
+
+    .stat-icon {
+        width: 54px;
+        height: 54px;
+        font-size: 24px;
+    }
+
+    .stat-details h3 {
+        font-size: 2rem;
+    }
+
+    .success-metrics {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .metric-card {
+        padding: 28px 24px;
+    }
+
+    .metric-value {
+        font-size: 2.4rem;
+    }
+
+    .chart-container {
+        min-height: 180px;
+    }
+
+    .chart-container::before {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .analytics-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .stat-card {
+        padding: 20px;
+        gap: 16px;
+    }
+
+    .stat-details h3 {
+        font-size: 1.8rem;
+    }
+
+    .stat-details p {
+        font-size: 0.85rem;
+    }
+
+    .metric-card {
+        padding: 24px 20px;
+    }
+
+    .metric-value {
+        font-size: 2rem;
+    }
+
+    .chart-container {
+        min-height: 160px;
+    }
+
+    .chart-container::before {
+        font-size: 1.4rem;
+    }
+}
