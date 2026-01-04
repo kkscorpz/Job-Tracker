@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="{% static 'notes.css' %}" />
+    <style>
+      /* Delete Button for Notes */
+      .delete-note {
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        background-color: #0d4715;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        z-index: 10;
+        opacity: 0;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .individual-note:hover .delete-note {
+        opacity: 1;
+      }
+
+      .delete-note:hover {
+        background-color: #1b5e20;
+        transform: scale(1.15);
+      }
+
+      /* Make sure individual note has position relative */
+      .individual-note {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    {% include "navbar.html" %}
+
+    <!-- Main Folders View -->
+    <div class="notes-container" id="foldersView">
+      <div class="notes-header">
+        <h1>NOTES</h1>
+      </div>
+
+      <div class="notes-grid" id="applicationFolders">
+        <!-- Application folders will be dynamically loaded here -->
+      </div>
+    </div>
+
+    <!-- Individual Notes View (Hidden by default) -->
+    <div
+      class="notes-detail-container"
+      id="notesDetailView"
+      style="display: none"
+    >
+      <button class="back-button" id="backButton">
+        <i class="fas fa-arrow-left"></i> Back
+      </button>
+
+      <div class="notes-header">
+        <h1>NOTES</h1>
+        <h2 id="currentFolderName"></h2>
+      </div>
+
+      <div class="notes-grid" id="notesGrid">
+        <!-- Notes will be dynamically loaded here -->
+      </div>
+    </div>
+
+    <!-- Modal for creating/editing notes -->
+    <div id="noteModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="noteModalTitle">Create Note</h2>
+          <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="noteTitle">Title</label>
+            <input type="text" id="noteTitle" placeholder="Enter note title" />
+          </div>
+          <div class="form-group">
+            <label for="noteBody">Body</label>
+            <textarea
+              id="noteBody"
+              rows="8"
+              placeholder="Write your note here..."
+            ></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-cancel">Cancel</button>
+          <button class="btn-save" id="saveNoteBtn">Save Note</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="{% static 'notes.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,222 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Job Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #0d4715 0%, #1b5e20 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .login-container {
+        background: white;
+        padding: 50px 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 420px;
+        animation: slideIn 0.5s ease-out;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .logo {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .logo i {
+        font-size: 50px;
+        color: #0d4715;
+      }
+
+      h2 {
+        color: #0d4715;
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 28px;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: 30px;
+        font-size: 14px;
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .input-wrapper {
+        position: relative;
+      }
+
+      .input-wrapper i {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+      }
+
+      input {
+        width: 100%;
+        padding: 14px 15px 14px 45px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 15px;
+        transition: all 0.3s ease;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #0d4715;
+        box-shadow: 0 0 0 3px rgba(13, 71, 21, 0.1);
+      }
+
+      button {
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(135deg, #0d4715 0%, #1b5e20 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(13, 71, 21, 0.3);
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(13, 71, 21, 0.4);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      .error {
+        background-color: #ffebee;
+        color: #c62828;
+        padding: 12px 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        text-align: center;
+        border-left: 4px solid #c62828;
+        font-size: 14px;
+      }
+
+      .error i {
+        margin-right: 8px;
+      }
+
+      .footer-text {
+        text-align: center;
+        margin-top: 25px;
+        color: #666;
+        font-size: 13px;
+      }
+
+      .footer-text a {
+        color: #0d4715;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .footer-text a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="logo">
+        <i class="fas fa-briefcase"></i>
+      </div>
+      <h2>Welcome Back</h2>
+      <p class="subtitle">Job Application Tracker</p>
+
+      {% if form.errors %}
+      <div class="error">
+        <i class="fas fa-exclamation-circle"></i>
+        Invalid username or password. Please try again.
+      </div>
+      {% endif %}
+
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="id_username">Username</label>
+          <div class="input-wrapper">
+            <i class="fas fa-user"></i>
+            <input
+              type="text"
+              name="username"
+              id="id_username"
+              required
+              autofocus
+              placeholder="Enter your username"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="id_password">Password</label>
+          <div class="input-wrapper">
+            <i class="fas fa-lock"></i>
+            <input
+              type="password"
+              name="password"
+              id="id_password"
+              required
+              placeholder="Enter your password"
+            />
+          </div>
+        </div>
+        <button type="submit"><i class="fas fa-sign-in-alt"></i> Login</button>
+      </form>
+
+      <div class="footer-text">
+        Don't have an account? <a href="{% url 'register' %}">Register here</a>
+      </div>
+    </div>
+  </body>
+</html>

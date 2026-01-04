@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <nav class="sidebar">
+      <div class="profile-section">
+        <div
+          class="profile-circle"
+          id="profileCircle"
+          onclick="document.getElementById('profileUpload').click()"
+        >
+          <img id="profileImage" src="" alt="Profile" style="display: none" />
+        </div>
+        <input
+          type="file"
+          id="profileUpload"
+          accept="image/*"
+          style="display: none"
+        />
+      </div>
+
+      <ul class="nav-links">
+        <li class="nav-item active">
+          <a href="/" title="Dashboard"><i class="fa-solid fa-house"></i></a>
+        </li>
+        <li class="nav-item">
+          <a href="/notes" title="Notes"
+            ><i class="fa-solid fa-pen-to-square"></i
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a href="/analytics" title="Analytics"
+            ><i class="fa-solid fa-chart-simple"></i
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a href="/settings" title="Settings"
+            ><i class="fa-solid fa-gears"></i
+          ></a>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>
